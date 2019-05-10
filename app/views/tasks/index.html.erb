@@ -1,0 +1,23 @@
+<div class="card-group">
+
+      <% @tasks.each do |task| %>
+  <div class="card " style="width: 50rem;">
+    <div class="card-body m-3 ">
+      <%= link_to task_path(task) do %>
+    <h2> <%= task.title %> </h2>
+      <% end %>
+      <p><%= task.details %></p>
+      <% if task.completed %>
+      <p>Task completed</p>
+    <% end %>
+      <%= link_to "Edit task", edit_path(task), class: "btn btn-primary" %>
+      <%= link_to "Delete task", task_path(task), method: :delete, class: "btn btn-success"%>
+      <%= link_to "Mark as completed", task_path(task), method: :post, class: "btn btn-danger" %>
+    <% end %>
+  </div>
+
+<%= link_to "Add a new task", new_path, class: "btn btn-info" %>
+</div>
+</div>
+</div>
+</div>
